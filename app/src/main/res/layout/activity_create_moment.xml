@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/margin_medium_2"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CreateMomentActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivCancelMoment"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:srcCompat="@drawable/ic_baseline_close_24"
+        app:tint="@color/colorAccent"
+        android:layout_width="@dimen/margin_large"
+        android:layout_height="@dimen/margin_large"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMoments"
+        android:text="New Moments"
+        android:textSize="24sp"
+        android:layout_toEndOf="@id/ivCancelMoment"
+        android:layout_toStartOf="@id/btnCreate"
+        android:layout_marginTop="@dimen/dimen_10"
+       android:textAlignment="center"
+        android:fontFamily="@font/yokie_demo_semibold"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCreate"
+        android:text="Create"
+        android:visibility="visible"
+     android:layout_alignParentEnd="true"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:fontFamily="@font/yokie_demo_medium"
+        android:textSize="@dimen/text_regular"
+        android:paddingTop="@dimen/margin_medium"
+        android:paddingBottom="@dimen/margin_medium"
+        android:paddingStart="@dimen/dimen_10"
+        android:letterSpacing="-0.03"
+        android:paddingEnd="@dimen/dimen_10"
+        android:background="@drawable/bg_login"
+        android:layout_width="60dp"
+        android:layout_height="32dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivProfileInMomentCreate"
+        android:layout_below="@id/ivCancelMoment"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        app:srcCompat="@drawable/profile"
+        android:scaleType="centerCrop"
+        android:layout_width="@dimen/dimen_50dp"
+        android:layout_height="@dimen/dimen_50dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNameCreate"
+        android:text="Michel"
+        android:layout_below="@id/ivCancelMoment"
+        android:layout_alignTop="@id/ivProfileInMomentCreate"
+        android:letterSpacing="-0.03"
+        android:layout_toEndOf="@id/ivProfileInMomentCreate"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:textSize="@dimen/text_regular_2x"
+        android:fontFamily="@font/notosan_bold"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtMomentDesInMomentCreate"
+        android:hint="@string/what_s_on_your_mind"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/notosan_regular"
+        android:textSize="@dimen/text_regular"
+        android:textColorHint="@color/grey"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_below="@id/ivProfileInMomentCreate"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAddedImgs"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@id/btnAddImage"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"/>
+
+    <FrameLayout
+        android:id="@+id/btnAddImage"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/bg_add_img"
+        android:padding="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCreateMoment"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_create_moment"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"/>
+    </FrameLayout>
+
+
+</RelativeLayout>

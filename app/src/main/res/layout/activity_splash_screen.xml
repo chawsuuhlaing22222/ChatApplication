@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="@dimen/margin_xlarge"
+    android:layout_marginEnd="@dimen/margin_xlarge"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SplashScreenActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivLogo"
+        android:scaleType="centerCrop"
+        android:layout_above="@id/tvTextFriAndShareMonents"
+        android:layout_marginBottom="200dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/ic_logo"
+        android:layout_width="@dimen/dimen_160"
+        android:layout_height="@dimen/dimen_150dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTextFriAndShareMonents"
+        android:layout_above="@id/tvEndToEnd"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:text="@string/text_ur_fri_and_share_monent"
+        android:letterSpacing="-0.05"
+        android:textAlignment="center"
+        android:fontFamily="@font/yorkiedemo_bold"
+        android:textSize="@dimen/text_18sp"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvEndToEnd"
+        android:layout_above="@id/btnSignUp"
+        android:textAlignment="center"
+        android:letterSpacing="-0.03"
+        android:layout_marginBottom="@dimen/dimen_50dp"
+        android:text="@string/end_to_end_security_msg"
+        android:fontFamily="@font/notosan_regular"
+        android:textSize="@dimen/text_small"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogin"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:elevation="@dimen/margin_xlarge"
+        android:fontFamily="@font/yokiedemo_extrabold"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_alignParentBottom="true"
+        android:textSize="@dimen/text_regular_2x"
+        android:paddingTop="@dimen/dimen_15dp"
+        android:paddingBottom="@dimen/dimen_15dp"
+        android:paddingStart="@dimen/dimen_50dp"
+        android:layout_marginBottom="60dp"
+        android:paddingEnd="@dimen/dimen_50dp"
+        android:background="@drawable/bg_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSignUp"
+        android:text="@string/sign_up"
+        android:textAllCaps="false"
+        android:layout_marginStart="@dimen/margin_small"
+        android:textColor="@color/colorAccent"
+        android:layout_marginBottom="60dp"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/yokiedemo_extrabold"
+        android:textSize="@dimen/text_regular_2x"
+        android:paddingTop="@dimen/dimen_15dp"
+        android:paddingBottom="@dimen/dimen_15dp"
+        android:paddingStart="@dimen/dimen_45dp"
+        android:paddingEnd="@dimen/dimen_45dp"
+        android:background="@drawable/bg_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

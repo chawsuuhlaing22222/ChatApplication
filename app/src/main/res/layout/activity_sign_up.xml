@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SignUpActivity">
+
+    <RelativeLayout
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBackFromSignup"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSignUpLogo1"
+            android:layout_width="137dp"
+            android:layout_height="137dp"
+            android:layout_marginEnd="-32dp"
+            android:layout_alignParentEnd="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/signup_img" />
+        <RelativeLayout
+            android:layout_below="@id/ivBackFromSignup"
+            android:clipToPadding="false"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            android:layout_marginLeft="@dimen/margin_xlarge"
+            android:layout_marginRight="@dimen/margin_xlarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHi"
+                android:fontFamily="@font/yokiedemo_extrabold"
+                android:text="@string/hi"
+                android:letterSpacing="-0.03"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLoginToContinue"
+                android:layout_below="@id/tvHi"
+                android:layout_marginTop="@dimen/margin_small"
+                android:fontFamily="@font/notosan_regular"
+                android:text="@string/create_a_new_account"
+                android:letterSpacing="-0.03"
+                android:textColor="@color/colorLoginToContinue"
+                android:textSize="@dimen/text_regular_2x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivProfile"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.NewCornerSize50Percent"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:layout_below="@id/tvLoginToContinue"
+                app:srcCompat="@drawable/me_icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutUserName"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_below="@id/ivProfile"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                app:hintTextAppearance="@style/HintTextAppearance"
+                android:drawableTint="@color/colorSecondaryText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtUserName"
+                    android:drawableTint="@color/colorSecondaryText"
+                    android:hint="@string/name"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:fontFamily="@font/yokie_demo_light"
+                    android:textSize="@dimen/text_regular_2x"
+                    android:textColor="@color/colorSecondaryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDateOfBirth"
+                android:text="Date of Birth"
+                android:letterSpacing="-0.03"
+                android:layout_marginTop="32dp"
+                style="@style/HintTextAppearance"
+                android:layout_below="@id/textInputLayoutUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:id="@+id/rlDays"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/margin_medium_2"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:paddingTop="@dimen/margin_medium_2"
+                android:paddingBottom="@dimen/margin_medium_2"
+                android:background="@drawable/bg_shadow_spinner_day"
+                android:layout_below="@id/tvDateOfBirth"
+
+                >
+
+                <TextView
+                    android:id="@+id/tvSelectedDays"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/yokie_demo_light"
+                    android:textSize="@dimen/text_regular"
+                    android:textColor="@color/colorSecondaryText"
+                    android:text="@string/days" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin_medium_3"
+                    android:layout_marginStart="@dimen/margin_medium_2"
+                    android:layout_toEndOf="@id/tvSelectedDays"
+                    android:background="@color/white"
+                    app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24"
+                    app:tint="@color/colorSecondaryText" />
+
+                <Spinner
+                    android:id="@+id/spinnerDays"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentBottom="true"
+                    style="@style/mySpinnerItemStyle"
+                    android:background="@color/white"
+                    android:overlapAnchor="false" >
+                </Spinner>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/margin_medium_2"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:paddingTop="@dimen/margin_medium_2"
+                android:paddingBottom="@dimen/margin_medium_2"
+                android:background="@drawable/bg_shadow_spinner_day"
+                android:layout_toEndOf="@id/rlDays"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_below="@id/tvDateOfBirth"
+
+                >
+
+                <TextView
+                    android:id="@+id/tvSelectedMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/yokie_demo_light"
+                    android:textSize="@dimen/text_regular"
+                    android:textColor="@color/colorSecondaryText"
+                    android:text="@string/month" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin_medium_3"
+                    android:layout_marginStart="@dimen/margin_xlarge"
+                    android:layout_toEndOf="@id/tvSelectedMonth"
+                    android:background="@color/white"
+                    app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24"
+                    app:tint="@color/colorSecondaryText" />
+
+                <Spinner
+                    android:id="@+id/spinnerMonth"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentBottom="true"
+                    style="@style/mySpinnerItemStyle"
+                    android:background="@color/white"
+                    android:overlapAnchor="false" >
+                </Spinner>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/margin_medium"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:paddingTop="@dimen/margin_medium_2"
+                android:paddingBottom="@dimen/margin_medium_2"
+                android:background="@drawable/bg_shadow_spinner_day"
+                android:layout_toEndOf="@id/rlMonth"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_below="@id/tvDateOfBirth"
+
+                >
+
+                <TextView
+                    android:id="@+id/tvSelectedYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/yokie_demo_light"
+                    android:textSize="@dimen/text_regular"
+                    android:textColor="@color/colorSecondaryText"
+                    android:text="Year" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin_medium_3"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_toEndOf="@id/tvSelectedYear"
+                    android:background="@color/white"
+                    app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24"
+                    app:tint="@color/colorSecondaryText" />
+
+                <Spinner
+                    android:id="@+id/spinnerYear"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentBottom="true"
+                    style="@style/mySpinnerItemStyle"
+                    android:background="@color/white"
+                    android:overlapAnchor="false" >
+                </Spinner>
+            </RelativeLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGender"
+                android:text="@string/gender"
+                android:letterSpacing="-0.03"
+                android:layout_marginTop="32dp"
+                style="@style/HintTextAppearance"
+                android:layout_below="@id/rlYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/rgGender"
+                android:layout_below="@id/tvGender"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    android:text="Male"
+                    android:checked="true"
+                    android:textStyle="bold"
+                    android:drawablePadding="0dp"
+                    android:textColor="@color/colorSecondaryText"
+                    android:fontFamily="@font/yokie_demo_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <RadioButton
+                    android:id="@+id/rbFemale"
+                    android:text="@string/female"
+                    android:checked="true"
+                    android:layout_marginStart="20dp"
+                    android:drawablePadding="0dp"
+                    android:textColor="@color/colorSecondaryText"
+                    android:fontFamily="@font/yokie_demo_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <RadioButton
+                    android:id="@+id/rbOther"
+                    android:text="Other"
+                    android:checked="true"
+                    android:layout_marginStart="20dp"
+                    android:drawablePadding="0dp"
+                    android:textColor="@color/colorSecondaryText"
+                    android:fontFamily="@font/yokie_demo_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RadioGroup>
+
+
+
+          <!--  <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutPassword"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_below="@id/rgGender"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="32dp"
+                app:hintTextAppearance="@style/HintTextAppearance"
+                android:drawableTint="@color/colorSecondaryText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtUserPassword"
+                    android:drawableTint="@color/colorSecondaryText"
+                    android:hint="@string/password"
+                    android:text="123"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:fontFamily="@font/yokie_demo_light"
+                    android:textSize="@dimen/text_regular_2x"
+                    android:textColor="@color/colorSecondaryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutPhoneNo"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_below="@id/rgGender"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="32dp"
+                app:hintTextAppearance="@style/HintTextAppearance"
+                android:drawableTint="@color/colorSecondaryText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtUserPhoneNo"
+                    android:drawableTint="@color/colorSecondaryText"
+                    android:hint="Enter Phone Number"
+                    android:inputType="number"
+                    android:text="123"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:fontFamily="@font/yokie_demo_light"
+                    android:textSize="@dimen/text_regular_2x"
+                    android:textColor="@color/colorSecondaryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/checkBoxForTerms"
+                android:layout_below="@id/textInputLayoutPhoneNo"
+                android:layout_marginTop="@dimen/dimen_50dp"
+                android:background="@color/colorSecondaryText"
+                android:drawableTint="@color/white"
+                android:buttonTint="@color/white"
+                android:checked="true"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+
+            <TextView
+                android:id="@+id/tvTerms"
+                android:layout_toEndOf="@id/checkBoxForTerms"
+                android:text="@string/terms"
+                android:textColor="@color/colorSecondaryText"
+                android:layout_marginTop="@dimen/dimen_50dp"
+                android:layout_below="@id/textInputLayoutPhoneNo"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:fontFamily="@font/notosan_medium"
+                android:textSize="@dimen/text_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSignUp"
+                android:text="Sign Up"
+                android:visibility="visible"
+                android:layout_below="@id/checkBoxForTerms"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:elevation="@dimen/margin_xlarge"
+                android:fontFamily="@font/yokiedemo_extrabold"
+                android:layout_marginTop="@dimen/dimen_40dp"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/text_regular_2x"
+                android:paddingTop="@dimen/dimen_15dp"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:paddingStart="@dimen/dimen_50dp"
+                android:paddingEnd="@dimen/dimen_50dp"
+                android:background="@drawable/bg_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/ivSignUpLogo2"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_large"
+               android:layout_below="@id/btnSignUp"
+                android:src="@drawable/signup_img2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

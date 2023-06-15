@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/margin_medium_2"
+    app:cardCornerRadius="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:paddingTop="@dimen/dimen_10"
+        android:paddingStart="@dimen/dimen_20dp"
+        android:paddingEnd="@dimen/dimen_20dp"
+        android:paddingBottom="@dimen/dimen_10"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivGroupCoverImg"
+        android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true"
+        app:shapeAppearanceOverlay="@style/ChatGroupCoverImg"
+        app:srcCompat="@drawable/ic_group_img"
+        android:layout_width="@dimen/dimen_50dp"
+        android:layout_height="@dimen/dimen_50dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvGroupName"
+            android:layout_below="@id/ivGroupCoverImg"
+            android:layout_marginTop="5dp"
+            android:text="Smiles"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/notosan_semibold"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

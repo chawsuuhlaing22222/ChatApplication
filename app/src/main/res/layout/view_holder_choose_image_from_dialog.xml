@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="@dimen/margin_medium_2"
+    android:layout_margin="@dimen/margin_xlarge"
+    android:background="@drawable/bg_corner_10_no_stroke_solid_primary"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    >
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:text="Please choose image from"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/notosan_regular"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnGallery"
+            android:text="Gallery"
+            android:textAllCaps="false"
+            android:layout_below="@id/tvInfo"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:textColor="@color/white"
+            android:fontFamily="@font/yokiedemo_extrabold"
+            android:textSize="@dimen/text_regular_2x"
+            android:paddingTop="@dimen/dimen_12"
+            android:paddingBottom="@dimen/dimen_12"
+            android:paddingStart="@dimen/margin_xlarge"
+            android:paddingEnd="@dimen/margin_xlarge"
+            android:background="@drawable/bg_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCanmera"
+            android:text="Camera"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:textColor="@color/white"
+            android:layout_below="@id/tvInfo"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:textAllCaps="false"
+            android:elevation="@dimen/margin_xlarge"
+            android:fontFamily="@font/yokiedemo_extrabold"
+            android:layout_toEndOf="@id/btnGallery"
+            android:textSize="@dimen/text_regular_2x"
+            android:paddingTop="@dimen/dimen_12"
+            android:paddingBottom="@dimen/dimen_12"
+            android:paddingStart="@dimen/margin_xlarge"
+            android:paddingEnd="@dimen/margin_xlarge"
+            android:background="@drawable/bg_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+
+
+
+
+</RelativeLayout>

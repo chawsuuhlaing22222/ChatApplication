@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.QRcodeScanner">
+    <com.journeyapps.barcodescanner.DecoratedBarcodeView
+        android:id="@+id/zxing_barcode_scanner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:zxing_scanner_layout="@layout/custom_barcode_scanner">
+    </com.journeyapps.barcodescanner.DecoratedBarcodeView>
+
+    <ImageView
+        android:id="@+id/barcodeBorderImage"
+        android:layout_width="0dp"
+        android:visibility="gone"
+        android:layout_height="212dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="194dp"
+        android:layout_marginEnd="22dp"
+        android:elevation="8dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</RelativeLayout>
+

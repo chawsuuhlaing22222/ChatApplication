@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "587449373640",
+    "firebase_url": "https://chatapppadc-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "chatapppadc",
+    "storage_bucket": "chatapppadc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587449373640:android:5f526569275511bb1ee6fd",
+        "android_client_info": {
+          "package_name": "com.padc.chatapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587449373640-30ahsng32qqa0fqavt2ehm35i3vdvnad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBanqZbmzpTWC1RUBYBk9yVPvCQs73xS5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587449373640-30ahsng32qqa0fqavt2ehm35i3vdvnad.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

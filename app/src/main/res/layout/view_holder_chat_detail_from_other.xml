@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivPersonFromOther"
+        android:layout_marginLeft="@dimen/margin_card_medium"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
+        android:layout_width="@dimen/dimen_50dp"
+        android:layout_height="@dimen/dimen_50dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_toEndOf="@id/ivPersonFromOther"
+        android:layout_alignBottom="@id/ivPersonFromOther"
+        android:layout_marginStart="-20dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/icon_active"
+        android:layout_width="10dp"
+        android:layout_height="10dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMsgFromOther"
+        android:visibility="gone"
+        android:layout_toEndOf="@id/ivPersonFromOther"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/llTextMsgFromOther"
+        android:visibility="visible"
+        android:layout_toEndOf="@id/ivPersonFromOther"
+        android:paddingTop="@dimen/margin_medium"
+        android:paddingBottom="@dimen/margin_medium"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:background="@drawable/bg_msg_other"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvTextFromOther"
+            android:text="How are you?"
+            android:textAlignment="textStart"
+            android:fontFamily="@font/notosan_regular"
+            android:textSize="@dimen/text_regular_2x"
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvDateFromOtherForText"
+            android:text="2am"
+            android:fontFamily="@font/notosan_regular"
+            android:textSize="8sp"
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llImageMsgFromOther"
+        android:gravity="end"
+        android:visibility="gone"
+        android:layout_toEndOf="@id/ivPersonFromOther"
+        android:paddingTop="@dimen/margin_medium"
+        android:paddingBottom="@dimen/margin_medium"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivImageMsgFromOther"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/post_img_2"
+            android:layout_width="180dp"
+            android:layout_height="100dp"/>
+
+        <TextView
+            android:id="@+id/tvDateFromOtherForImg"
+            android:text="2am"
+            android:textAlignment="textStart"
+            android:fontFamily="@font/notosan_regular"
+            android:textSize="8sp"
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

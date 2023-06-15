@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">ChatApplication</string>
+    <string name="text_ur_fri_and_share_monent">Text your friends and share moments</string>
+    <string name="end_to_end_security_msg">End-to-end secured messaging app with Social Elements</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="lbl_welcome">Welcome !</string>
+    <string name="login_to_continue">Login to continue</string>
+    <string name="enter_your_phone_number">Enter Your Phone Number</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="hi">Hi !</string>
+    <string name="create_a_new_account">Create a new account</string>
+    <string name="dont_receive_the_otp">Dont receive the OTP?</string>
+    <string name="get_otp">Get OTP</string>
+    <string name="name">Name</string>
+    <string name="days">Days</string>
+    <string name="month">Month</string>
+    <string name="gender">Gender</string>
+    <string name="female">Female</string>
+    <string name="password">Password</string>
+    <string name="terms">Agree To Term And Service</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="what_s_on_your_mind">What’s on your mind</string>
+    <string name="chats">Chats</string>
+    <string name="contacts">Contacts</string>
+    <string name="search">Search</string>
+    <string name="empty_contact_des">No contact or group with name “Aung Naing” exits</string>
+    <string name="me">Me</string>
+    <string name="bookmarked_moments">Bookmarked Moments</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="tap_to_scan">Tap to Scan</string>
+    <string name="tap_to_scan_instruction">Scan the QR code to add your frined in contact.</string>
+    <string name="gallery">Gallery</string>
+</resources>

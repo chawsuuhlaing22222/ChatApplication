@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="@dimen/margin_medium_2"
+
+    app:cardCornerRadius="@dimen/dimen_10"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:padding="@dimen/margin_medium"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivChatPerson"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/post_img_2"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_toEndOf="@id/ivChatPerson"
+            android:layout_alignBottom="@id/ivChatPerson"
+            android:layout_marginStart="-20dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/icon_active"
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="@dimen/dimen_20dp"/>
+
+        <TextView
+            android:id="@+id/tvNameInChat"
+            android:layout_toEndOf="@id/ivChatPerson"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="Mg Mg"
+            android:textAlignment="center"
+            android:letterSpacing="-0.03"
+            android:fontFamily="@font/notosan_regular"
+            android:textSize="@dimen/text_regular_2x"
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvLastSentDate"
+          android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="23 min"
+            android:textAlignment="center"
+            android:letterSpacing="-0.03"
+            android:fontFamily="@font/notosan_semibold"
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/tvLastSentTypeDes"
+            android:layout_below="@id/tvNameInChat"
+            android:layout_toEndOf="@id/ivChatPerson"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="Aung Thant Kyaw : Where ?"
+            android:layout_toStartOf="@id/ivSendType"
+            android:layout_marginEnd="@dimen/margin_card_medium_2"
+            android:letterSpacing="-0.03"
+            android:fontFamily="@font/notosan_regular"
+            android:textSize="@dimen/text_regular"
+            android:textColor="@color/grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSendType"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"
+            android:layout_below="@id/tvLastSentDate"
+            app:srcCompat="@drawable/ic_deliver"
+            android:scaleType="centerCrop"
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="@dimen/dimen_20dp"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

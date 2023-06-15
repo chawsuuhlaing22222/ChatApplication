@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".activities.NewGroupCreateActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivCancelCreateGroup"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/ic_baseline_close_24"
+        app:tint="@color/colorAccent"
+        android:layout_width="@dimen/margin_large"
+        android:layout_height="@dimen/margin_large"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNewGroup"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:text="New Groups"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:layout_toEndOf="@id/ivCancelCreateGroup"
+        android:layout_toStartOf="@id/btnCreateGroup"
+        android:fontFamily="@font/yokie_demo_semibold"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCreateGroup"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:text="Create"
+        android:visibility="visible"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:fontFamily="@font/yokie_demo_medium"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/text_regular"
+        android:paddingTop="@dimen/margin_medium"
+        android:paddingBottom="@dimen/margin_medium"
+        android:paddingStart="@dimen/dimen_10"
+        android:letterSpacing="-0.03"
+        android:paddingEnd="@dimen/dimen_10"
+        android:background="@drawable/bg_login"
+        android:layout_width="60dp"
+        android:layout_height="32dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivGroupCoverImg"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.NewCornerSize50Percent"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_below="@id/btnCreateGroup"
+        app:srcCompat="@drawable/me_icon"
+        android:tooltipText="Group Cover Photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/textInputLayoutGroupName"
+          android:layout_marginStart="@dimen/margin_medium_2"
+          android:layout_marginEnd="@dimen/margin_medium_2"
+          android:layout_marginTop="@dimen/margin_medium_2"
+          android:layout_below="@id/ivGroupCoverImg"
+          android:hint="Group Name"
+          style="@style/Widget.Design.TextInputLayout"
+          app:hintTextColor="@color/grey"
+          app:hintTextAppearance="@style/HintTextAppearanceForNewGroup"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+          <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/edtGroupName"
+              android:text="Joy "
+              android:textColor="@color/colorAccent"
+              android:textSize="@dimen/text_regular_2x"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"/>
+      </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlSearchInNewGroup"
+        android:layout_below="@id/textInputLayoutGroupName"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:background="@drawable/bg_search_in_contact"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSearchInNewGroup"
+            app:srcCompat="@drawable/ic_search"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:scaleType="fitCenter"
+            android:layout_width="15dp"
+            android:layout_height="15dp"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtSearchNameInNewGroup"
+            android:hint="@string/search"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_toEndOf="@id/ivSearchInNewGroup"
+            android:backgroundTint="@android:color/transparent"
+            android:textSize="@dimen/text_regular_2x"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="@font/notosan_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCancelForSearchInNewGroup"
+            android:layout_marginEnd="@dimen/dimen_10"
+            app:srcCompat="@drawable/ic_baseline_close_24"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:layout_width="24dp"
+            android:layout_height="24dp"/>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPersonAddedToCreateGroup"
+        android:layout_below="@id/rlSearchInNewGroup"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChatPersonInNewGroup"
+        android:layout_below="@id/rvPersonAddedToCreateGroup"
+        android:layout_marginTop="@dimen/margin_card_medium"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_toStartOf="@id/cardViewAlphabetInNewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewAlphabetInNewGroup"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_below="@id/rvPersonAddedToCreateGroup"
+        android:elevation="@dimen/margin_medium_2"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAlphabetInNewGroup"
+            android:background="@color/white"
+            android:padding="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

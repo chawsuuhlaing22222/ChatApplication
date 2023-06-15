@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="55dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivChatPerson"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
+        android:layout_width="@dimen/dimen_50dp"
+        android:layout_height="@dimen/dimen_50dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_toEndOf="@id/ivChatPerson"
+        android:layout_alignBottom="@id/ivChatPerson"
+        android:layout_marginStart="-20dp"
+        android:scaleType="centerCrop"
+      app:srcCompat="@drawable/icon_active"
+        android:layout_width="@dimen/dimen_20dp"
+        android:layout_height="@dimen/dimen_20dp"/>
+
+    <TextView
+        android:id="@+id/tvNameInChat"
+        android:layout_below="@id/ivChatPerson"
+        android:text="Mg Mg"
+        android:textAlignment="center"
+        android:letterSpacing="-0.03"
+        android:fontFamily="@font/notosan_medium"
+        android:textSize="@dimen/text_small"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

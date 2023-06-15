@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivProfileInMoment"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        app:srcCompat="@drawable/profile"
+        android:scaleType="centerCrop"
+        android:layout_width="@dimen/dimen_50dp"
+        android:layout_height="@dimen/dimen_50dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvName"
+        android:text="Michel"
+        android:letterSpacing="-0.03"
+        android:layout_toEndOf="@id/ivProfileInMoment"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:textSize="@dimen/text_regular_2x"
+        android:fontFamily="@font/notosan_bold"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMomentDate"
+        android:layout_below="@id/tvName"
+        android:text="14 min ago"
+        android:letterSpacing="-0.03"
+        android:layout_toEndOf="@id/ivProfileInMoment"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:textSize="@dimen/text_small"
+        android:fontFamily="@font/notosan_regular"
+        android:textColor="@color/grey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvMomentDes"
+        android:text="Nice"
+        android:fontFamily="@font/notosan_medium"
+        android:textSize="@dimen/text_regular_2x"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="@dimen/margin_card_medium_2"
+        android:layout_below="@id/ivProfileInMoment"
+        android:letterSpacing="-0.03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rvMomentImg"
+    android:layout_marginTop="@dimen/margin_card_medium_2"
+    android:layout_below="@id/tvMomentDes"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivFavourite"
+        android:layout_below="@id/rvMomentImg"
+        android:layout_marginTop="@dimen/margin_card_medium_2"
+        app:srcCompat="@drawable/favorite_fill"
+        app:tint="@color/red"
+        android:scaleType="centerCrop"
+        android:layout_width="24dp"
+        android:layout_height="24dp"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvFavCount"
+        android:text="10"
+        android:layout_toEndOf="@id/ivFavourite"
+        android:layout_marginStart="2dp"
+        android:layout_below="@id/rvMomentImg"
+        android:layout_marginTop="@dimen/margin_card_medium_2"
+        android:textColor="@color/red"
+        android:fontFamily="@font/inter_medium"
+        android:textSize="@dimen/text_15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBookmark"
+        android:layout_below="@id/rvMomentImg"
+        android:layout_marginTop="@dimen/margin_card_medium_2"
+        android:layout_alignParentEnd="true"
+        app:srcCompat="@drawable/bookmark_icon"
+        app:tint="@color/red"
+        android:scaleType="centerCrop"
+        android:layout_width="24dp"
+        android:layout_height="24dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivComment"
+        android:layout_below="@id/rvMomentImg"
+        android:layout_marginTop="@dimen/margin_card_medium_2"
+       android:layout_toStartOf="@id/tvCommentCount"
+        app:srcCompat="@drawable/post_comment_icon"
+        android:scaleType="centerCrop"
+        android:layout_width="26dp"
+        android:layout_height="26dp"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCommentCount"
+        android:text="10"
+       android:layout_toStartOf="@id/ivBookmark"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginStart="2dp"
+        android:layout_below="@id/rvMomentImg"
+        android:layout_marginTop="@dimen/margin_card_medium_2"
+        android:textColor="@color/colorAccent"
+        android:fontFamily="@font/inter_medium"
+        android:textSize="@dimen/text_15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_below="@id/ivFavourite"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:background="#5A999999"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivContentMenuForPost"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="@dimen/margin_medium"
+       android:layout_alignParentEnd="true"
+        app:srcCompat="@drawable/ic_post_content_menu"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

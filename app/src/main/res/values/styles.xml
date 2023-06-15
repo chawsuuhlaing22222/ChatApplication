@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">@dimen/dimen_25dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.Profile" parent="">
+        <item name="cornerSize">60dp</item>
+    </style>
+
+    <style name="ChatGroupCoverImg" parent="">
+        <item name="cornerSize">@dimen/dimen_10</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.NewCornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>

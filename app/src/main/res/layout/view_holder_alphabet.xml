@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+<TextView
+    android:id="@+id/tvAlphabet"
+    android:text="A"
+    android:visibility="visible"
+    android:fontFamily="@font/inter_medium"
+    android:textSize="10sp"
+    android:textColor="@color/colorAccent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/ivStar"
+        android:visibility="gone"
+        android:src="@drawable/ic_green_star"
+        android:scaleType="fitCenter"
+        android:layout_width="@dimen/dimen_12"
+        android:layout_height="@dimen/dimen_12"/>
+</LinearLayout>

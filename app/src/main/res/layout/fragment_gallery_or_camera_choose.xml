@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/margin_xlarge"
+    tools:context=".fragments.GalleryOrCameraChooseFragment">
+
+    <RadioGroup
+        android:id="@+id/rgUpdloadImage"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <RadioButton
+        android:id="@+id/rbGallery"
+        android:text="@string/gallery"
+        android:checked="false"
+        android:textStyle="bold"
+        android:drawablePadding="10dp"
+        android:textColor="@color/colorSecondaryText"
+        android:fontFamily="@font/yokie_demo_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+        <View
+            android:id="@+id/viewSeparatorInDialogFrag"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:visibility="gone"
+            android:layout_below="@id/rbGallery"
+            android:background="@color/grey"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <RadioButton
+            android:id="@+id/rbCamera"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="Camera"
+            android:checked="false"
+            android:textStyle="bold"
+            android:drawablePadding="10dp"
+            android:textColor="@color/colorSecondaryText"
+            android:fontFamily="@font/yokie_demo_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+
+
+
+   <!-- <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivCamera"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_below="@id/viewSeparatorInDialogFrag"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/ic_camera"
+        android:layout_width="@dimen/dimen_40dp"
+        android:layout_height="@dimen/dimen_40dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvGallery"
+        android:layout_toEndOf="@id/ivGallery"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:text="@string/gallery"
+        android:textSize="@dimen/text_regular_2x"
+        android:textColor="@color/colorAccent"
+        android:fontFamily="@font/notosan_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>-->
+
+</RelativeLayout>

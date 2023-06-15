@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".fragments.SettingFragment">
+
+
+    <TextView
+        android:id="@+id/tvLogoutAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/notosan_semibold"
+        android:text="Are You Sure ?"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_heading_2x" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvLogoutAlert"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_marginBottom="@dimen/margin_medium_2"
+        android:background="@drawable/bg_login"
+        android:fontFamily="@font/yokiedemo_extrabold"
+        android:paddingStart="@dimen/dimen_45dp"
+        android:paddingTop="@dimen/dimen_15dp"
+        android:paddingEnd="@dimen/dimen_45dp"
+        android:paddingBottom="@dimen/dimen_15dp"
+        android:text="Log Out"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_regular_2x" />
+
+</RelativeLayout>
