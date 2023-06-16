@@ -107,6 +107,8 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edtSearchNameInNewGroup"
             android:hint="@string/search"
+            android:imeOptions="actionSearch"
+          android:singleLine="true"
             android:layout_marginStart="@dimen/margin_medium_2"
             android:layout_toEndOf="@id/ivSearchInNewGroup"
             android:layout_toStartOf="@id/ivCancelForSearchInNewGroup"
@@ -132,17 +134,52 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPersonAddedToCreateGroup"
         android:layout_below="@id/rlSearchInNewGroup"
+        android:layout_toStartOf="@id/cardViewAlphabetInNewGroup"
         android:layout_marginTop="@dimen/margin_medium_2"
         android:layout_marginStart="@dimen/margin_medium_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChatPersonInNewGroup"
+    <FrameLayout
+      android:id="@+id/flContacts"
+        android:layout_marginEnd="@dimen/dimen_50dp"
         android:layout_below="@id/rvPersonAddedToCreateGroup"
         android:layout_marginStart="@dimen/margin_medium_2"
-        android:layout_toStartOf="@id/cardViewAlphabetInNewGroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+        <com.padc.chatapplication.adapters.SmartRecyclerView
+            android:id="@+id/rvChatPersonInNewGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/llEmptyContactInNewGroup"
+            android:layout_margin="@dimen/margin_medium_2"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivContactEmpty"
+                app:srcCompat="@drawable/contact_empty_img"
+                android:scaleType="centerCrop"
+                android:layout_width="240dp"
+                android:layout_height="240dp"/>
+
+            <TextView
+                android:id="@+id/tvEmptyDes"
+                android:textAlignment="center"
+                android:fontFamily="@font/notosan_regular"
+                android:textSize="@dimen/margin_medium_2"
+                android:textColor="@color/grey"
+                android:text="No Contacts"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </FrameLayout>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewAlphabetInNewGroup"

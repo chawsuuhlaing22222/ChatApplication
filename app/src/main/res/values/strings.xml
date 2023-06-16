@@ -25,7 +25,7 @@
     <string name="chats">Chats</string>
     <string name="contacts">Contacts</string>
     <string name="search">Search</string>
-    <string name="empty_contact_des">No contact or group with name “Aung Naing” exits</string>
+    <string name="empty_contact_des">No contact or group </string>
     <string name="me">Me</string>
     <string name="bookmarked_moments">Bookmarked Moments</string>
     <string name="phone_number">Phone Number</string>

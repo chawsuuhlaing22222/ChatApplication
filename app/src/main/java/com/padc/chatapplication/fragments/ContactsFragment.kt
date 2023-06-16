@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -44,18 +45,20 @@ class ContactsFragment : Fragment(),ContactView {
     private var mSearchGroupList:MutableList<GroupVO> = mutableListOf()
     private var mGroups:List<GroupVO> = listOf()
     var alphabetAdapter = AlphabetAdapter()
-
+    var groupCountTxtView:TextView?=null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_contacts, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        groupCountTxtView=tvGroupCount
         setUpPresenter()
         setUpRecycler()
 
@@ -116,7 +119,7 @@ class ContactsFragment : Fragment(),ContactView {
 
         ivCancelForSearch.setOnClickListener {
             //contacts
-            mContacts?.let { it1 -> parentContactPersonAdapter.setNewData(it1.toList()) }
+            mContacts?.let { it1 -> parentContactPersonAdapter.setNewData(it1.toList().sortedBy { c ->c.first }) }
 
             //groups
             mGroups?.let {
@@ -240,10 +243,14 @@ class ContactsFragment : Fragment(),ContactView {
 
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
-                    val lManager = recyclerView.layoutManager as LinearLayoutManager?
-                    val firstElementPosition = lManager!!.findFirstVisibleItemPosition()
-                    var firstChar:Char?=mContacts?.toList()?.get(firstElementPosition)?.first
-                    firstChar?.let { alphabetAdapter.setCurrentChar(it) }
+
+                    if(recyclerView.adapter?.itemCount !=0){
+                        val lManager = recyclerView.layoutManager as LinearLayoutManager?
+                        val firstElementPosition = lManager!!.findFirstVisibleItemPosition()
+                        var firstChar:Char?=mContacts?.toList()?.get(firstElementPosition)?.first
+                        firstChar?.let { alphabetAdapter.setCurrentChar(it) }
+                    }
+
                 }
             })
         }
@@ -286,7 +293,11 @@ class ContactsFragment : Fragment(),ContactView {
 
     override fun showGroups(groups: List<GroupVO>) {
         //var groupNameList:List<String>=groups.map { g->g.groupName }
-        tvGroupCount.text="Groups(${groups.size})"
+
+        if(groups.size!=0){
+            groupCountTxtView?.text="Groups(${groups.size})"
+        }
+
         this.mGroups=groups
         mChatAdapter.setNewData(groups)
     }

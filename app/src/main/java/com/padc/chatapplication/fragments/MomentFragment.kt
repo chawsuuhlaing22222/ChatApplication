@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.padc.chatapplication.R
 import com.padc.chatapplication.activities.CreateMomentActivity
-import com.padc.chatapplication.adapters.MomentAdapter
+import com.padc.chatapplication.adapters.NewMomentAdapter
 import com.padc.chatapplication.data.vos.MomentVO
 import com.padc.chatapplication.data.vos.UserVO
 import com.padc.chatapplication.mvp.presenters.impls.MomentPresenterImpl
@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_moment.*
 
 class MomentFragment : Fragment(),MomentView {
 
-lateinit var mMomentAdapter: MomentAdapter
+ var mMomentAdapter: NewMomentAdapter=NewMomentAdapter()
 lateinit var mMomentPresenter: MomentPresenterImpl
 
     override fun onCreateView(
@@ -55,7 +55,7 @@ lateinit var mMomentPresenter: MomentPresenterImpl
     }
 
     private fun setUpRecycler() {
-        mMomentAdapter = MomentAdapter()
+        mMomentAdapter = NewMomentAdapter()
         rvMoments.apply {
             adapter=mMomentAdapter
             layoutManager=
@@ -85,7 +85,9 @@ lateinit var mMomentPresenter: MomentPresenterImpl
 
     override fun showAllMoments(moments: List<MomentVO>) {
         if(!moments.isNullOrEmpty()){
-                mMomentAdapter.setNewData(moments.sortedByDescending { moment->moment.uploadDate })
+              //  mMomentAdapter.setNewData(moments.sortedByDescending { moment->moment.uploadDate })
+            mMomentAdapter.submitList(moments.sortedByDescending { moment->moment.uploadDate })
+               mMomentAdapter.notifyDataSetChanged()
         }
 
     }

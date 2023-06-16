@@ -199,12 +199,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <androidx.recyclerview.widget.RecyclerView
+
+    <com.padc.chatapplication.adapters.SmartRecyclerView
         android:id="@+id/rvMomentsInProfile"
         android:paddingStart="@dimen/margin_medium_2"
         android:paddingEnd="@dimen/margin_medium_2"
         android:layout_below="@id/tvBookMark"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvEmptyMyMoments"
+        android:visibility="gone"
+        android:text="No BookMark Moments"
+        android:fontFamily="@font/notosan_bold"
+        android:textSize="@dimen/text_heading_1x"
+        android:textColor="@color/colorAccent"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
 </RelativeLayout>

@@ -10,6 +10,8 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +41,10 @@ class NewGroupCreateActivity : AppCompatActivity() ,ContactView{
 
     private var filePath: Uri?=null
     private var bitmap: Bitmap?=null
+
+    //for searh
+    private var mSearchContactList:Map<Char,List<UserVO>>?= mapOf()
+
 
     companion object{
          var selectedUserList:MutableList<String> = mutableListOf()
@@ -100,6 +106,67 @@ class NewGroupCreateActivity : AppCompatActivity() ,ContactView{
             selectedUserList.clear()
 
         }
+
+        edtSearchNameInNewGroup.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                performSearch(edtSearchNameInNewGroup.text?.trim().toString())
+                return@OnEditorActionListener true
+            }
+            false
+        })
+
+
+        ivCancelForSearchInNewGroup.setOnClickListener {
+            //contacts
+            mContacts?.let { it1 -> parentContactPersonAdapter.setNewData(it1.toList().sortedBy { c ->c.first }) }
+
+            //clear text
+            edtSearchNameInNewGroup.setText("")
+
+        }
+
+    }
+
+    private fun performSearch(name: String) {
+
+        //inital default empty
+        mSearchContactList = mapOf()
+
+
+        //search contacts
+        var searchContactList:MutableList<UserVO> = mutableListOf()
+        var firstChar=name.first().uppercaseChar()
+        var contactsUsers=mContacts?.get(firstChar)
+        contactsUsers?.let {
+            it.forEach { user->
+                if(user.name.contains(name,true)){
+                    searchContactList.add(user)
+                }
+            }
+        }
+
+        //transform serach contact result to map
+        searchContactList?.let {
+            mSearchContactList = it.groupBy { it.name.first() }
+
+        }
+
+        //set search contact result to adapter
+        mSearchContactList?.let {
+            parentContactPersonAdapter.setNewData(it.toList())
+        }
+
+
+
+        /*//check to show empty image
+        if(mSearchContactList?.size==0  && mSearchGroupList.size==0){
+            rlContactBody.visibility=View.GONE
+            llEmptyContact.visibility=View.VISIBLE
+        }else{
+            rlContactBody.visibility=View.VISIBLE
+            llEmptyContact.visibility=View.GONE
+        }*/
+
 
     }
 
@@ -172,6 +239,7 @@ class NewGroupCreateActivity : AppCompatActivity() ,ContactView{
         parentContactPersonAdapter.setFlagCheck()
        // parentContactPersonAdapter.setNewData(listOf(1,2,3))
         rvChatPersonInNewGroup.apply {
+            setEmptyView(llEmptyContactInNewGroup)
             adapter=parentContactPersonAdapter
             layoutManager=
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
@@ -218,7 +286,7 @@ class NewGroupCreateActivity : AppCompatActivity() ,ContactView{
 
     override fun showContacts(contacts:Map<Char,List<UserVO>>) {
         mContacts=contacts
-        parentContactPersonAdapter.setNewData(contacts.toList())
+        parentContactPersonAdapter.setNewData(contacts.toList().sortedBy { c ->c.first })
     }
 
     override fun showPeerToPeerChat(receipt: UserVO) {

@@ -26,7 +26,8 @@ import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
 import com.padc.chatapplication.R
-import com.padc.chatapplication.adapters.MomentAdapter
+import com.padc.chatapplication.adapters.NewMomentAdapter
+//import com.padc.chatapplication.adapters.MomentAdapter
 import com.padc.chatapplication.data.vos.MomentVO
 import com.padc.chatapplication.data.vos.UserVO
 import com.padc.chatapplication.mvp.presenters.impls.MePresenterImpl
@@ -51,7 +52,7 @@ class MeFragment : Fragment(),MeView {
     private var qrCode:Bitmap?=null
 
     private var REQUEST_PICK_IMAGE=300
-    lateinit var mMomentAdapter:MomentAdapter
+    lateinit var mMomentAdapter:NewMomentAdapter
 
 
     override fun onCreateView(
@@ -128,8 +129,9 @@ class MeFragment : Fragment(),MeView {
     }
 
     private fun setUpRecycler() {
-          mMomentAdapter = MomentAdapter()
+          mMomentAdapter = NewMomentAdapter()
         rvMomentsInProfile.apply {
+            setEmptyView(tvEmptyMyMoments)
             adapter=mMomentAdapter
             layoutManager=
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
@@ -193,7 +195,8 @@ class MeFragment : Fragment(),MeView {
     }
 
     override fun showMyMoments(moments: List<MomentVO>) {
-        mMomentAdapter.setNewData(moments)
+        mMomentAdapter.submitList(moments.sortedByDescending { moment->moment.uploadDate })
+        mMomentAdapter.notifyDataSetChanged()
     }
 
     override fun showError(error: String) {

@@ -14,14 +14,14 @@ class SmartRecyclerView @JvmOverloads constructor(
     private val dataObserver = object : AdapterDataObserver() {
         override fun onChanged() {
             super.onChanged()
-            //checkIfEmpty()
-            //scrollToPosition(positionStart)
+            checkIfEmpty()
+
         }
 
         override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
             super.onItemRangeInserted(positionStart, itemCount)
-            //checkIfEmpty()
-            scrollToPosition(positionStart)
+            checkIfEmpty()
+           // scrollToPosition(positionStart)
 
         }
 
