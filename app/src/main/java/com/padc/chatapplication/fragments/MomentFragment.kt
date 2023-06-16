@@ -20,7 +20,6 @@ import com.padc.chatapplication.mvp.views.MomentView
 import com.padc.chatapplication.utils.ConfigUtils
 import kotlinx.android.synthetic.main.fragment_moment.*
 
-
 class MomentFragment : Fragment(),MomentView {
 
 lateinit var mMomentAdapter: MomentAdapter

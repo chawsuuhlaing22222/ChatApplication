@@ -8,13 +8,14 @@ import com.padc.chatapplication.R
 import com.padc.chatapplication.fragments.*
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         switchFragment(MomentFragment())
-
         setUpActionListener()
     }
 
@@ -53,3 +54,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+//full screen with status bar icon
+/*
+window?.decorView?.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+window.statusBarColor = Color.TRANSPARENT*/
+
+//full screen no status bar
+// window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//  if (supportActionBar != null){ supportActionBar?.hide(); }

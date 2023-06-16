@@ -8,13 +8,11 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarInMe"
+        android:layout_marginTop="6dp"
         android:layout_width="match_parent"
         android:background="@color/colorPrimary"
         android:layout_height="?attr/actionBarSize">
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            app:layout_scrollFlags="exitUntilCollapsed|scroll"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
             <androidx.appcompat.widget.Toolbar
                 app:layout_collapseMode="pin"
                 android:layout_width="match_parent"
@@ -30,7 +28,8 @@
                         android:text="@string/me"
                         android:textSize="34sp"
                         android:layout_marginStart="@dimen/margin_medium_2"
-                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:textAlignment="gravity"
                         android:fontFamily="@font/yokie_demo_semibold"
                         android:textColor="@color/colorSecondaryText"
                         android:layout_width="wrap_content"
@@ -48,7 +47,6 @@
                 </RelativeLayout>
 
             </androidx.appcompat.widget.Toolbar>
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -210,3 +208,9 @@
         android:layout_height="wrap_content"/>
 
 </RelativeLayout>
+
+<!--
+<com.google.android.material.appbar.CollapsingToolbarLayout
+app:layout_scrollFlags="exitUntilCollapsed|scroll"
+android:layout_width="match_parent"
+android:layout_height="match_parent">-->
