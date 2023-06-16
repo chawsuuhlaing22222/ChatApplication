@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/tvInfo"
-        android:text="Please choose image from"
+        android:text="Please choose image "
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/notosan_regular"

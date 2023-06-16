@@ -15,8 +15,8 @@ import com.padc.chatapplication.mvp.views.LoginView
 import com.padc.chatapplication.utils.ConfigUtils
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity() ,LoginView{
-    lateinit var mPresenter:LoginPresenter
+class LoginActivity : AppCompatActivity(), LoginView {
+    lateinit var mPresenter: LoginPresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -33,11 +33,11 @@ class LoginActivity : AppCompatActivity() ,LoginView{
     private fun setUpActionListener() {
 
         btnLogin.setOnClickListener {
-            var email=edtEmail.text.toString()
-            var password=edtEnterYourPassword.text.toString()
+            var email = edtEmail.text.toString()
+            var password = edtEnterYourPassword.text.toString()
 
 
-           mPresenter.onTapLogin(email, password)
+            mPresenter.onTapLogin(email, password)
         }
     }
 
@@ -48,24 +48,29 @@ class LoginActivity : AppCompatActivity() ,LoginView{
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            androidx.appcompat.R.id.home->{
+        return when (item.itemId) {
+            androidx.appcompat.R.id.home -> {
                 Toast.makeText(this, "home", Toast.LENGTH_SHORT).show()
                 finish()
                 true
             }
-            else->{
+            else -> {
                 false
             }
         }
     }
 
     override fun showMainPage() {
-        FirebaseAuth.getInstance().currentUser?.uid?.let { ConfigUtils.getInstance().saveToken(it) }
-        startActivity(Intent(this,MainActivity::class.java))
-    }
+        FirebaseAuth.getInstance().currentUser?.uid?.let {
+            ConfigUtils.getInstance().saveToken(it)
+        }
+        var intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
 
-    override fun showError(error: String) {
-       Snackbar.make(window.decorView,error,Snackbar.LENGTH_SHORT).show()
+
     }
-}
+        override fun showError(error: String) {
+            Snackbar.make(window.decorView, error, Snackbar.LENGTH_SHORT).show()
+        }
+    }

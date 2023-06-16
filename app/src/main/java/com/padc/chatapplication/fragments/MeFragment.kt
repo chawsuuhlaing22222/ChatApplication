@@ -1,5 +1,6 @@
 package com.padc.chatapplication.fragments
 
+//import com.padc.chatapplication.adapters.MomentAdapter
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Bitmap
@@ -13,6 +14,8 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -27,7 +30,6 @@ import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
 import com.padc.chatapplication.R
 import com.padc.chatapplication.adapters.NewMomentAdapter
-//import com.padc.chatapplication.adapters.MomentAdapter
 import com.padc.chatapplication.data.vos.MomentVO
 import com.padc.chatapplication.data.vos.UserVO
 import com.padc.chatapplication.mvp.presenters.impls.MePresenterImpl
@@ -35,7 +37,7 @@ import com.padc.chatapplication.mvp.views.MeView
 import com.padc.chatapplication.utils.ConfigUtils
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import kotlinx.android.synthetic.main.fragment_me.*
-import kotlinx.android.synthetic.main.fragment_me.ivProfile
+import kotlinx.android.synthetic.main.fragment_me.view.*
 import kotlinx.android.synthetic.main.view_item_qr_code_bitmap.view.*
 import java.io.IOException
 
@@ -54,6 +56,14 @@ class MeFragment : Fragment(),MeView {
     private var REQUEST_PICK_IMAGE=300
     lateinit var mMomentAdapter:NewMomentAdapter
 
+    private lateinit  var tvProfileName:TextView
+    private lateinit var tvPhoneNo:TextView
+    private lateinit var tvDate:TextView
+    private lateinit var tvGenderInProfile:TextView
+    private lateinit var ivQrCodeInProfile:ImageView
+    private lateinit  var ivProfile:ImageView
+    private lateinit var tvEmptyMyMomentsInMe:TextView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,6 +76,14 @@ class MeFragment : Fragment(),MeView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+         tvProfileName=view.tvProfileName
+         tvPhoneNo=view.tvPhoneNo
+         tvDate=view.tvDate
+         tvGenderInProfile=view.tvGenderInProfile
+         ivQrCodeInProfile=view.ivQrCodeInProfile
+         ivProfile=view.ivProfile
+        tvEmptyMyMomentsInMe=view.tvEmptyMyMomentsInMe
 
         //for short toekn
         FirebaseInstallations.getInstance().id.addOnCompleteListener {
@@ -109,7 +127,7 @@ class MeFragment : Fragment(),MeView {
 
         }
 
-        ivQrCodeInProfile.setOnClickListener {
+        ivQrCodeInProfile?.setOnClickListener {
 
             var dialog= context?.let { it1 -> Dialog(it1) }
             var view=LayoutInflater.from(context).inflate(R.layout.view_item_qr_code_bitmap,null)
@@ -129,9 +147,10 @@ class MeFragment : Fragment(),MeView {
     }
 
     private fun setUpRecycler() {
-          mMomentAdapter = NewMomentAdapter()
+        mMomentAdapter = NewMomentAdapter()
+        rvMomentsInProfile.setEmptyView(tvEmptyMyMomentsInMe)
         rvMomentsInProfile.apply {
-            setEmptyView(tvEmptyMyMoments)
+
             adapter=mMomentAdapter
             layoutManager=
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
@@ -180,7 +199,7 @@ class MeFragment : Fragment(),MeView {
 
         mUserVO=userVO
         context?.let { Glide.with(it).load(userVO.profileImage).into(ivProfile) }
-        tvProfileName.text=userVO.name
+        tvProfileName?.text=userVO.name
         tvPhoneNo.text=userVO.phoneNo
         tvDate.text=userVO.dob
         tvGenderInProfile.text=userVO.gender

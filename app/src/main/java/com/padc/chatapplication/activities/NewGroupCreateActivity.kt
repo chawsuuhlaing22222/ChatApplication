@@ -238,8 +238,9 @@ class NewGroupCreateActivity : AppCompatActivity() ,ContactView{
         parentContactPersonAdapter = ParentContactPersonAdapter(mPresenter)
         parentContactPersonAdapter.setFlagCheck()
        // parentContactPersonAdapter.setNewData(listOf(1,2,3))
+        rvChatPersonInNewGroup.setEmptyView(llEmptyContactInNewGroup)
         rvChatPersonInNewGroup.apply {
-            setEmptyView(llEmptyContactInNewGroup)
+
             adapter=parentContactPersonAdapter
             layoutManager=
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)

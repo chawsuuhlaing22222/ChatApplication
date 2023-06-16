@@ -1,8 +1,8 @@
 package com.padc.chatapplication.viewholders
 
 import android.graphics.Rect
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,12 +14,7 @@ import kotlinx.android.synthetic.main.view_holder_moment_item.view.*
 
 
 class MomentViewHolder(var itemView:View):RecyclerView.ViewHolder(itemView) {
-    var viewGroup: ViewGroup? = null
 
-    fun MomentViewHolder(view: View?) {
-       // super(view)
-        viewGroup = itemView as ViewGroup
-    }
      fun bindData(data: MomentVO) {
         //rvImages
         var postImageAdapter=PostImageAdapter()
@@ -57,6 +52,8 @@ class MomentViewHolder(var itemView:View):RecyclerView.ViewHolder(itemView) {
                 }
 
             }
+        }else{
+            itemView.rvMomentImg.visibility=View.GONE
         }
 
 
@@ -64,7 +61,9 @@ class MomentViewHolder(var itemView:View):RecyclerView.ViewHolder(itemView) {
         itemView.tvMomentDes.text=data.description
         Glide.with(itemView.context).load(data.userProfile).into(itemView.ivProfileInMoment)
         itemView.tvName.text = data.userName
+         Log.i("date",data.uploadDate.toString())
         itemView.tvMomentDate.text= data.uploadDate?.toLong()?.let { getDate(it) }
+
 
     }
 }

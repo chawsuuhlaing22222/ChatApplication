@@ -204,12 +204,13 @@
         android:id="@+id/rvMomentsInProfile"
         android:paddingStart="@dimen/margin_medium_2"
         android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingBottom="60dp"
         android:layout_below="@id/tvBookMark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/tvEmptyMyMoments"
+        android:id="@+id/tvEmptyMyMomentsInMe"
         android:visibility="gone"
         android:text="No BookMark Moments"
         android:fontFamily="@font/notosan_bold"
