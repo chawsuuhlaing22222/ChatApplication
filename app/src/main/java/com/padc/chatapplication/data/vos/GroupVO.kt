@@ -1,6 +1,7 @@
 package com.padc.chatapplication.data.vos
 
 data class GroupVO(
+
     var groupName:String?=null,
     var members:String?=null,
     var groupCoverImg:String?=null,

@@ -79,7 +79,6 @@
           android:layout_height="wrap_content">
           <com.google.android.material.textfield.TextInputEditText
               android:id="@+id/edtGroupName"
-              android:text="Joy "
               android:textColor="@color/colorAccent"
               android:textSize="@dimen/text_regular_2x"
               android:layout_width="match_parent"
@@ -110,6 +109,7 @@
             android:hint="@string/search"
             android:layout_marginStart="@dimen/margin_medium_2"
             android:layout_toEndOf="@id/ivSearchInNewGroup"
+            android:layout_toStartOf="@id/ivCancelForSearchInNewGroup"
             android:backgroundTint="@android:color/transparent"
             android:textSize="@dimen/text_regular_2x"
             android:textColor="@color/colorAccent"
@@ -139,7 +139,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvChatPersonInNewGroup"
         android:layout_below="@id/rvPersonAddedToCreateGroup"
-        android:layout_marginTop="@dimen/margin_card_medium"
         android:layout_marginStart="@dimen/margin_medium_2"
         android:layout_toStartOf="@id/cardViewAlphabetInNewGroup"
         android:layout_width="match_parent"
@@ -150,6 +149,7 @@
         android:layout_marginEnd="@dimen/margin_medium_2"
         android:layout_below="@id/rvPersonAddedToCreateGroup"
         android:elevation="@dimen/margin_medium_2"
+        android:layout_marginTop="4dp"
         android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

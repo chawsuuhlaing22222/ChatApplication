@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.padc.chatapplication.R
@@ -55,7 +56,7 @@ class NewGroupCreateActivity : AppCompatActivity() ,ContactView{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_group_create)
-
+        bitmap=null
         setUpPresenter()
         setUpRecycler()
         setUpActionListener()
@@ -91,9 +92,13 @@ class NewGroupCreateActivity : AppCompatActivity() ,ContactView{
                            null,membersCount))
                }
 
-           }
+               finish()
 
-            finish()
+           }else{
+               showError("Please select image and enter group name")
+           }
+            selectedUserList.clear()
+
         }
 
     }
@@ -242,6 +247,6 @@ class NewGroupCreateActivity : AppCompatActivity() ,ContactView{
     }
 
     override fun showError(error: String) {
-
+       Snackbar.make(window.decorView,error,Snackbar.LENGTH_SHORT).show()
     }
 }

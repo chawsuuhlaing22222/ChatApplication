@@ -23,7 +23,14 @@ class NewGroupMemberAdapter(var delegate:ContactDelegate):BaseRecyclerAdapter<Ne
         //holder.bindData(user)
 
         Glide.with(holder.itemView.context).load(data.profileImage).into(holder.itemView.ivNewMemberCoverImg)
-        holder.itemView.tvPersonNameInNewGroup.text=data.name
+
+        data.name?.length?.let{
+            if(it>6){
+                holder.itemView.tvPersonNameInNewGroup.text="${data.name?.substring(0,6)}.."
+            }else{
+                holder.itemView.tvPersonNameInNewGroup.text=data.name
+            }
+        }
 
         holder.itemView.ivRemove.setOnClickListener {
             delegate.onUnSelectContactFromNewMember(data)

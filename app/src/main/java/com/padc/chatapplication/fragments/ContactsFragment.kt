@@ -45,8 +45,6 @@ class ContactsFragment : Fragment(),ContactView {
     private var mGroups:List<GroupVO> = listOf()
     var alphabetAdapter = AlphabetAdapter()
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -288,6 +286,7 @@ class ContactsFragment : Fragment(),ContactView {
 
     override fun showGroups(groups: List<GroupVO>) {
         //var groupNameList:List<String>=groups.map { g->g.groupName }
+        tvGroupCount.text="Groups(${groups.size})"
         this.mGroups=groups
         mChatAdapter.setNewData(groups)
     }

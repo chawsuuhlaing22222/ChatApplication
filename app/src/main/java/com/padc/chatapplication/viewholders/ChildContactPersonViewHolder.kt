@@ -27,8 +27,16 @@ class ChildContactPersonViewHolder(var delegate: ContactDelegate, val itemView: 
         itemView.checkToAddGroupChat.setOnCheckedChangeListener { compoundButton, isChecked ->
 
             if(isChecked){
-                delegate.onSelectContact(data)
-                itemView.checkToAddGroupChat.setButtonDrawable(R.drawable.check_fill)
+
+                if(NewGroupCreateActivity.selectedUserList.contains(data.qrCode)){
+                    //itemView.checkToAddGroupChat.isChecked=true
+                    delegate.onUnSelectContact(data)
+                    itemView.checkToAddGroupChat.setButtonDrawable(R.drawable.uncheck_fill)
+                }else{
+                    delegate.onSelectContact(data)
+                    itemView.checkToAddGroupChat.setButtonDrawable(R.drawable.check_fill)
+
+                }
             }else{
                 delegate.onUnSelectContact(data)
                 itemView.checkToAddGroupChat.setButtonDrawable(R.drawable.uncheck_fill)

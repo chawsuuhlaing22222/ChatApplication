@@ -21,6 +21,7 @@ class ChatPresenterImpl:AbstractBasePresenter<ChatView>(),ChatPresenter {
     var currentUserId = FirebaseAuth.getInstance().currentUser?.uid ?: ""
     private var chatList:MutableList<SmallChatVO> = mutableListOf()
     private var contactList:List<UserVO> = listOf()
+    private var chatShortChatList:MutableList<SmallChatVO> = mutableListOf()
     override fun onUiReady(context: Context, owner: LifecycleOwner) {
         //get contacts list
         contactModel.getAllContacts(currentUserId,{
@@ -35,7 +36,6 @@ class ChatPresenterImpl:AbstractBasePresenter<ChatView>(),ChatPresenter {
         chatModel.getAllChatListByUserId(currentUserId,{
             //mView.showShortChatList(it)
             updateShortChatList(it)
-
             chatModel.getAllGroupList(currentUserId,{
                 var groups= it.sortedByDescending { groupVO -> groupVO.createdTimeStamp?.toLong() }
                 //mView.saveGroupList(groups)
@@ -43,6 +43,7 @@ class ChatPresenterImpl:AbstractBasePresenter<ChatView>(),ChatPresenter {
             },{
                 mView.showError(it)
             })
+
         },{
             mView.showError(it)
         })
@@ -51,6 +52,10 @@ class ChatPresenterImpl:AbstractBasePresenter<ChatView>(),ChatPresenter {
     }
 
     private fun changeGroupToSmallChatList(groupChatList: List<GroupVO>) {
+
+        chatList.clear()
+       chatList= mutableListOf()
+       chatList.addAll(chatShortChatList as MutableList<SmallChatVO>)
         groupChatList.forEach {
             var lastMsgKey:String?=it.messages?.keys?.max()
             var lstMsg=it.messages?.get(lastMsgKey)
@@ -89,7 +94,9 @@ class ChatPresenterImpl:AbstractBasePresenter<ChatView>(),ChatPresenter {
             }
         }
 
-       chatList.addAll(chats)
+       chatShortChatList.clear()
+       chatShortChatList.addAll(chats as MutableList<SmallChatVO>)
+       chatList= chats as MutableList<SmallChatVO>
 
 
     }

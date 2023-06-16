@@ -32,6 +32,7 @@
             android:fontFamily="@font/notosan_semibold"
             android:textSize="14sp"
             android:textColor="@color/black"
+            android:maxWidth="70dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RelativeLayout>

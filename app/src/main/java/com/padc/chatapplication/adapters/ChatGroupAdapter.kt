@@ -23,7 +23,14 @@ class ChatGroupAdapter(var delegate:ContactDelegate):BaseRecyclerAdapter<ChatGro
         var data=mData.get(position)
         Log.i("groupMsg", data.messages.toString())
         Glide.with(holder.itemView.context).load(data.groupCoverImg).into(holder.itemView.ivGroupCoverImg)
-        holder.itemView.tvGroupName.text = data.groupName
+        data.groupName?.length?.let{
+            if(it>6){
+                holder.itemView.tvGroupName.text ="${data.groupName?.substring(0,6)}.."
+            }else{
+                holder.itemView.tvGroupName.text = data.groupName
+            }
+        }
+
 
         holder.itemView.setOnClickListener {
             delegate.tapGroup(data)

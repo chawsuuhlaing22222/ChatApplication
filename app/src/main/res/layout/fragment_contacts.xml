@@ -103,6 +103,7 @@
                    android:singleLine="true"
                    android:layout_marginStart="@dimen/margin_medium_2"
                    android:layout_toEndOf="@id/ivSearch"
+                   android:layout_toStartOf="@id/ivCancelForSearch"
                    android:backgroundTint="@android:color/transparent"
                    android:textSize="@dimen/text_regular_2x"
                    android:textColor="@color/colorAccent"
@@ -132,7 +133,6 @@
 
                <androidx.appcompat.widget.AppCompatTextView
                    android:id="@+id/tvGroupCount"
-
                    android:text="Groups(5)"
                    android:layout_marginTop="@dimen/margin_medium"
                    android:layout_marginStart="@dimen/margin_medium_2"
@@ -205,6 +205,7 @@
                    android:id="@+id/cardViewAlphabet"
                    android:layout_marginEnd="@dimen/margin_medium_2"
                    android:layout_below="@id/rvChatGroup"
+                   android:layout_marginTop="6dp"
                    android:elevation="@dimen/margin_medium_2"
                    android:layout_alignParentEnd="true"
                    android:layout_width="wrap_content"
