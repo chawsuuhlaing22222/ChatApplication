@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_qrcode_scanner.*
 
 class QRcodeScanner : AppCompatActivity(), QRScannerView{
 
-
     private lateinit var capture: CaptureManager
 
     companion object{
