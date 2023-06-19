@@ -238,8 +238,8 @@ class PeerToPeerChatActivity : AppCompatActivity() ,PeerToPeerChatView{
     }
 
     override fun showMessages(msg: List<MessageVO>) {
-        mChatAdapter.setNewData(msg)
-        rvChatMessage.scrollToPosition(msg.size)
+        mChatAdapter.setNewData(msg.sortedBy { message->message.timeStamp })
+        rvChatMessage.scrollToPosition(msg.size-1)
     }
 
     override fun showError(error: String) {

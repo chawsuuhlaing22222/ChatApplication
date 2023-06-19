@@ -259,7 +259,7 @@ class GroupChatActivity : AppCompatActivity() ,GroupChatView{
     }
 
     override fun showGroupChatMsg(msg: List<GroupMessageVO>) {
-        mChatAdapter.setNewData(msg)
+        mChatAdapter.setNewData(msg.sortedBy { m->m.sendTimeStamp })
 
 
     }

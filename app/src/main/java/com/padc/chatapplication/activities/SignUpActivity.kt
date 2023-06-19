@@ -219,6 +219,7 @@ class SignUpActivity : AppCompatActivity(),SignUpView {
           intent.addFlags(FLAG_ACTIVITY_CLEAR_TASK or FLAG_ACTIVITY_NEW_TASK)
           startActivity(intent)
           finish()
+
       }
       //Snackbar.make(window.decorView,"user created successfully",Snackbar.LENGTH_SHORT).show()
     }
