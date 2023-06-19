@@ -48,7 +48,7 @@
         android:letterSpacing="-0.03"
         android:paddingEnd="@dimen/dimen_10"
         android:background="@drawable/bg_login"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="32dp"/>
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -91,18 +91,20 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAddedImgs"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@id/btnAddImage"
-        android:layout_width="match_parent"
+        android:minWidth="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="110dp"/>
 
     <FrameLayout
         android:id="@+id/btnAddImage"
+        android:layout_marginStart="@dimen/margin_card_medium_2"
+        android:layout_toEndOf="@id/rvAddedImgs"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
         android:background="@drawable/bg_add_img"
         android:padding="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:minWidth="110dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivCreateMoment"
             android:scaleType="centerCrop"

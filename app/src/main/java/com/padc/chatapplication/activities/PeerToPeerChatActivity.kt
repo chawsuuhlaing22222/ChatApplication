@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -75,6 +76,42 @@ class PeerToPeerChatActivity : AppCompatActivity() ,PeerToPeerChatView{
         mPresenter.onUiReady(this,this,currentUserId ?: "",receiptUser.qrCode ?: "")
 
     }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when(requestCode){
+            REQUEST_IMAGE_CAPTURE ->{
+                if (grantResults.isNotEmpty() && grantResults[0] === PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(applicationContext, "Permission Granted", Toast.LENGTH_SHORT)
+                        .show()
+
+                    performCameraTakePhoto()
+                } else {
+                    Toast.makeText(applicationContext, "Permission Denied", Toast.LENGTH_SHORT)
+                        .show()
+
+                }
+
+            }
+
+        }
+    }
+
+    private fun performCameraTakePhoto(){
+        val values = ContentValues()
+        values.put(MediaStore.Images.Media.TITLE, "take_picture")
+        values.put(MediaStore.Images.Media.DESCRIPTION, "take_picture_des")
+        filePath = contentResolver?.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
+        // Create camera intent
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, filePath)
+        startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
+    }
+
     private fun setUpPresenter() {
         mPresenter = ViewModelProvider(this)[PeerToPeerChatPresenterImpl::class.java]
         mPresenter.initPresenter(this)
@@ -103,14 +140,7 @@ class PeerToPeerChatActivity : AppCompatActivity() ,PeerToPeerChatView{
         ivCamera.setOnClickListener {
             if(hasPermission()){
 
-                val values = ContentValues()
-                values.put(MediaStore.Images.Media.TITLE, "take_picture")
-                values.put(MediaStore.Images.Media.DESCRIPTION, "take_picture_des")
-                filePath = contentResolver?.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
-                // Create camera intent
-                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, filePath)
-                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
+                performCameraTakePhoto()
             }else{
                 requestPermission()
             }

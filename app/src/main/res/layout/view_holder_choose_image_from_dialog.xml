@@ -12,6 +12,7 @@
     <TextView
         android:id="@+id/tvInfo"
         android:text="Please choose image "
+        android:textSize="@dimen/text_regular_2x"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/notosan_regular"
@@ -25,9 +26,9 @@
             android:id="@+id/btnGallery"
             android:text="Gallery"
             android:textAllCaps="false"
+            android:textAlignment="center"
             android:layout_below="@id/tvInfo"
             android:layout_marginTop="@dimen/margin_medium_2"
-            android:layout_marginStart="@dimen/margin_medium_2"
             android:textColor="@color/white"
             android:fontFamily="@font/yokiedemo_extrabold"
             android:textSize="@dimen/text_regular_2x"
@@ -36,27 +37,26 @@
             android:paddingStart="@dimen/margin_xlarge"
             android:paddingEnd="@dimen/margin_xlarge"
             android:background="@drawable/bg_login"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnCanmera"
             android:text="Camera"
-            android:layout_marginStart="@dimen/margin_medium_2"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:layout_below="@id/tvInfo"
+            android:layout_below="@id/btnGallery"
             android:layout_marginTop="@dimen/margin_medium_2"
             android:textAllCaps="false"
             android:elevation="@dimen/margin_xlarge"
             android:fontFamily="@font/yokiedemo_extrabold"
-            android:layout_toEndOf="@id/btnGallery"
             android:textSize="@dimen/text_regular_2x"
             android:paddingTop="@dimen/dimen_12"
             android:paddingBottom="@dimen/dimen_12"
             android:paddingStart="@dimen/margin_xlarge"
             android:paddingEnd="@dimen/margin_xlarge"
             android:background="@drawable/bg_login"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
 

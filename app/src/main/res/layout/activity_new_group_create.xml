@@ -50,7 +50,7 @@
         android:letterSpacing="-0.03"
         android:paddingEnd="@dimen/dimen_10"
         android:background="@drawable/bg_login"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="32dp"/>
 
     <com.google.android.material.imageview.ShapeableImageView

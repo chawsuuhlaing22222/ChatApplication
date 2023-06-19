@@ -16,6 +16,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -39,6 +40,7 @@ class CreateMomentActivity : AppCompatActivity(), MomentView {
     lateinit var mAddedImageAdapter: PostAddedImgAdapter
     private var REQUEST_PICK_IMAGE_FROM_GALLERY = 1001
     private var REQUEST_PICK_IMAGE_FROM_CAMERA = 100
+
 
     private var filePath: Uri? = null
     private var bitmap: Bitmap? = null
@@ -140,6 +142,7 @@ class CreateMomentActivity : AppCompatActivity(), MomentView {
                 dialog.dismiss()
             } else {
                 requestPermission()
+                dialog.dismiss()
             }
             dialog.dismiss()
 
@@ -167,6 +170,31 @@ class CreateMomentActivity : AppCompatActivity(), MomentView {
         intent.putExtra(MediaStore.EXTRA_OUTPUT, filePath)
         startActivityForResult(intent, REQUEST_PICK_IMAGE_FROM_CAMERA)
 
+    }
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when(requestCode){
+            REQUEST_PICK_IMAGE_FROM_CAMERA ->{
+                if (grantResults.isNotEmpty() && grantResults[0] === PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(applicationContext, "Permission Granted", Toast.LENGTH_SHORT)
+                        .show()
+
+                    performCameraTakePhoto()
+                } else {
+                    Toast.makeText(applicationContext, "Permission Denied", Toast.LENGTH_SHORT)
+                        .show()
+
+                }
+
+            }
+
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -235,9 +263,7 @@ class CreateMomentActivity : AppCompatActivity(), MomentView {
 
     private fun requestPermission() {
         ActivityCompat.requestPermissions(this, permissions, REQUEST_PICK_IMAGE_FROM_CAMERA)
-        if (hasPermission()) {
-            performCameraTakePhoto()
-        }
+
     }
 
     private fun hasPermission(): Boolean {
