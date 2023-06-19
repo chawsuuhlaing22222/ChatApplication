@@ -21,10 +21,10 @@ fun getDate(milliSeconds1: Long): String? {
    var milliSeconds=System.currentTimeMillis()-milliSeconds1
    val minutes = milliSeconds / 1000 / 60
    val hours=  milliSeconds / 1000 / 60 / 60
-   val formatter = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
-   val calendar: Calendar = Calendar.getInstance()
-   calendar.setTimeInMillis(milliSeconds)
-   val date=formatter.format(calendar.getTime())
+   val formatter = SimpleDateFormat("dd/MM/yyyy")
+  // val calendar: Calendar = Calendar.getInstance()
+  // calendar.timeInMillis = milliSeconds
+   val date=formatter.format(milliSeconds1)
 
    var result=""
    if(minutes>=60){

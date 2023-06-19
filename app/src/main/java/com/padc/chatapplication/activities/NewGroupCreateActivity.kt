@@ -77,6 +77,10 @@ class NewGroupCreateActivity : AppCompatActivity() ,ContactView{
     }
 
     private fun setUpActionListener() {
+
+        ivCancelCreateGroup.setOnClickListener {
+            finish()
+        }
         ivGroupCoverImg.setOnClickListener {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, REQUEST_PICK_IMAGE)

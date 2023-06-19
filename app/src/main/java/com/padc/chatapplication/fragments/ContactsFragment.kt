@@ -80,7 +80,7 @@ class ContactsFragment : Fragment(),ContactView {
         ) { result: ScanIntentResult ->
             if (!result.contents.isNullOrEmpty()) {
                 Log.i("qr",result.contents)
-                Toast.makeText(context, "Scan Result: ${result.contents}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "New contact is added", Toast.LENGTH_SHORT).show()
                 mPresenter.createContact(result.contents)
             }else{
                 // CANCELED

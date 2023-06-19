@@ -68,6 +68,9 @@ class CreateMomentActivity : AppCompatActivity(), MomentView {
     }
 
     private fun setUpActionListener() {
+        ivCancelMoment.setOnClickListener {
+            finish()
+        }
         btnAddImage.setOnClickListener {
             showChooseAlert()
         }
